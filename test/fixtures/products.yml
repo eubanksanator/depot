@@ -11,3 +11,10 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+
+ruby:
+ title: Exercising affectively
+ description:
+  Exercising is very important for anyone and everyones life.  It causes and promotes fat loss, easy mobility, longer life and most importantly self satisfaction.
+ price: 49.99
+ image_url: exercise.jpg
