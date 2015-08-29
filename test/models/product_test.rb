@@ -20,10 +20,11 @@ class ProductTest < ActiveSupport::TestCase
       assert product.invalid?, "must be greater than or equal to 0.01"
 
       product.price = 0
-      assert product.valid?, "must be greater than or equal to 0.01"
+      assert product.invalid?, "must be greater than or equal to 0.01"
 
-      product.price = 1
-      assert product.valid?
+      product.price = 8
+      assert product.invalid?, "#{product.price} must be greater than or equal to 0.01"
+
    end
 
    def new_product(image_url)
@@ -46,8 +47,12 @@ class ProductTest < ActiveSupport::TestCase
 # Below uses the fixtures
    test "product is not valid without a unique title" do
       product = Product.new(title: products(:ruby).title, description: "yyy", price: 10, image_url: "travis.gif")
-      assert product.invalid?
-      assert_equal ["has already been taken"], product.errors[:title]
+      assert product.invalid?, "Must be unique title"
+   end
+
+   test "the title is not longer than 10chars" do
+      product = Product.new(title: "Travis Eubanks is Awesome yeah man", description: "yyy", price: 10, image_url: "travis.gif")
+      assert product.invalid?, "must be less than or equal to 10chars long"
    end
 
 end
