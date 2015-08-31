@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chapter 9
+   - A product inside a cart is really just a line item which holds info of a specific product, Not the actual Product
+   - Access session data by calling 'session[:some_attribute]'
+   - Check if a session with a stored attritbute exist, If not, initialize that session.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+   - Concern folders hold modules with methods that you can 'Include' to use that data and methods. Models>concerns>your_file.rb
+   - Concern files need to ' extend ActiveSupport::Concern ' inside the file
