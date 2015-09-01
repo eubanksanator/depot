@@ -5,8 +5,11 @@ class Cart < ActiveRecord::Base
       current_item = line_items.find_by(product_id: product_id)
       if current_item
          current_item.quantity += 1
+         current_item.price = current_item.product.price
       else
          current_item = line_items.build(product_id: product_id)
+         product = Product.find(product_id)
+         current_item = line_items.build(:product_id => product_id, :price => product.price)
       end
       current_item
    end
@@ -16,3 +19,4 @@ class Cart < ActiveRecord::Base
    end
 
 end
+
