@@ -1,0 +1,6 @@
+//  This template tells the browser to replace
+//  the content of the element whose class="cart" with that HTML
+
+
+$('.cart').html("<%= escape_javascript render(@cart) %>");
+

@@ -3,6 +3,7 @@
 @import "bootstrap";
 @import "products";
 @import "store";
+@import "carts";
 
 
 #banner{
@@ -34,11 +35,32 @@
       padding:1em;
       background: white;
    }
+}
    #side{
       float: left;
       padding:1em 2em;
       width: 13em;
       background: #141;
+
+      from, div{
+         display:inline;
+      }
+
+      input{
+         font-size: small;
+      }
+
+      .cart{
+         font-size: smaller;
+         color:white;
+
+         table{
+            border-top: 1px dotted gray;
+            border-bottom: 1px dotted gray;
+            border-bottom: 10px;
+         }
+      }
+
       ul{
          padding: 0;
          li{
@@ -50,4 +72,4 @@
          }
       }
    }
-}
+
