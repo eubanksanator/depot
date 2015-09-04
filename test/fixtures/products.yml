@@ -13,7 +13,7 @@ two:
   price: 9.99
 
 ruby:
- title: Exercising affectively
+ title: Programming Ruby 1.9
  description:
   Exercising is very important for anyone and everyones life.  It causes and promotes fat loss, easy mobility, longer life and most importantly self satisfaction.
  price: 49.99
@@ -45,7 +45,7 @@ two:
 
 coffee:
   id: 2
-  title: CoffeeScript
+  title: Exercising affectively
   description:
     <p>
     CoffeeScript is JavaScript done right. It provides all of JavaScripts

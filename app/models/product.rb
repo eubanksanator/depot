@@ -8,10 +8,10 @@ class Product < ActiveRecord::Base
    validates :title, uniqueness: true
    validates :title, length: { maximum: 10 }
 
-   validates :image_url, allow_blank: true, format: {
-      with: %r{\.(gif|jpg|png)\Z},
-      message: 'Must be a URL for GIF, JPG or PNG image.'
-   }
+   # validates :image_url, allow_blank: true, format: {
+   #    with: %r{\.(gif|jpg|png)\Z},
+   #    message: 'Must be a URL for GIF, JPG or PNG image.'
+   # }
 
 
 

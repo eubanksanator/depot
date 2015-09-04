@@ -31,18 +31,18 @@ class ProductTest < ActiveSupport::TestCase
       Product.new(title: "Arm blaster", description: "Good arms workoutout", price: 1, image_url: image_url)
    end
 
-   test "image url" do
-      ok_images  = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/a/b/c/fred.gif }
-      bad_images = %w{ fred.doc fred.gif/more fred.gif.more }
+   # test "image url" do
+   #    ok_images  = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/a/b/c/fred.gif }
+   #    bad_images = %w{ fred.doc fred.gif/more fred.gif.more }
 
-      ok_images.each do |image|
-         assert new_product(image).valid?, "#{image} should be valid"
-      end
+   #    ok_images.each do |image|
+   #       assert new_product(image).valid?, "#{image} should be valid"
+   #    end
 
-      bad_images.each do |image|
-         assert new_product(image).invalid?, "#{image} should NOT be valid"
-      end
-   end
+   #    bad_images.each do |image|
+   #       assert new_product(image).invalid?, "#{image} should NOT be valid"
+   #    end
+   # end
 
 # Below uses the fixtures
    test "product is not valid without a unique title" do
