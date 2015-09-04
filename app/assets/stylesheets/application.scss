@@ -5,7 +5,18 @@
 @import "store";
 @import "carts";
 
+.depot_form{
+   fieldset{
+      background: #efe;
 
+      legend{
+         color: #dfd;
+         background: #141;
+         font-family: sans-serif;
+         padding: 0.2em 1em;
+      }
+   }
+}
 #banner{
    background:#9c9;
    padding: 10px;
