@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
+    <%= f.text_field :product_id, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cart_id %><br>
-    <%= f.text_field :cart_id %>
+    <%= f.text_field :cart_id, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
