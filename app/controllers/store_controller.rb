@@ -6,6 +6,8 @@ class StoreController < ApplicationController
    @products = Product.all.order(:title)
   end
 
+
+
   private
    def index_view_counter
       session[:counter] ||= 0

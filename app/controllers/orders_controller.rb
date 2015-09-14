@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only:  [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :is_ship_date_empty?, only: [:update]
 
   # GET /orders
   # GET /orders.json
@@ -38,7 +39,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-
+        OrderNotified.received(@order).deliver
         format.html { redirect_to store_url, notice: 'Thank you for your order!' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -72,6 +73,8 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -80,6 +83,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :ship_date)
     end
+
 end
