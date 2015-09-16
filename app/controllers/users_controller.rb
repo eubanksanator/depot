@@ -25,6 +25,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    cp = params[:user].delete('current_password')
+    @user.errors.add(:current_password, 'is not correct') unless @user.authenticate(cp)
 
     respond_to do |format|
       if @user.save
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.errors.empty? and @user.update_attributes(params[:user])
         format.html { redirect_to users_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -54,7 +56,13 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    begin
     @user.destroy
+      flash[:notice] = "User #{@user.name} deleted"
+    rescue StandarError => e
+      flash[:notice] = e.message
+    end
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
