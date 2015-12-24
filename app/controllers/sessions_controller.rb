@@ -18,4 +18,5 @@ def destroy
   session[:user_id] = nil
   redirect_to store_url, notice: "logged out"
 end
+
 end
